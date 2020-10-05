@@ -19,7 +19,7 @@ OR:
 
     heic2jpg -d <directory>
 
-Recursive directory with JPEG quality 90 (if not specified, default is 70):
+Recursive directory with JPEG quality 90 (if not specified, default is 75):
 
     heic2jpg -d <directory> -r -q=90
 

@@ -4,6 +4,7 @@ import (
 	"errors"
 	"flag"
 	"fmt"
+	"image/jpeg"
 	"log"
 	"os"
 	"path/filepath"
@@ -15,7 +16,7 @@ var (
 	root      = flag.String("d", "", "specify root `directory` to start processing from")
 	recursive = flag.Bool("r", false, "process directories recursively")
 	rm        = flag.Bool("rm", false, "remove source file")
-	quality   = flag.Int("q", 70, "jpeg `quality`")
+	quality   = flag.Int("q", jpeg.DefaultQuality, "jpeg `quality`")
 )
 
 func init() {

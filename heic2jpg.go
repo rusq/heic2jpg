@@ -10,12 +10,14 @@ import (
 
 const heicExt = ".heic"
 
+// Converter contains the runtime settings for the convertion process.
 type Converter struct {
 	recursive bool
 	rm        bool
 	quality   int
 }
 
+// New creates the new converter.
 func New(recursive bool, rm bool, quality int) (*Converter, error) {
 	if quality < 0 || 100 < quality {
 		return nil, errors.New("invalid quality value")
@@ -23,6 +25,8 @@ func New(recursive bool, rm bool, quality int) (*Converter, error) {
 	return &Converter{recursive: recursive, rm: rm, quality: quality}, nil
 }
 
+// WalkFn is the function that should be passed to os.Walk to do the conversion
+// of files in some directory.
 func (c *Converter) WalkFn(path string, info os.FileInfo, err error) error {
 	if err != nil {
 		return err
